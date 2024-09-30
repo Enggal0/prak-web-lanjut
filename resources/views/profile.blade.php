@@ -7,7 +7,7 @@
     <style>
         body {
             font-family: Montserrat, poppins;
-            background-color: #f9f9f9;
+            background-color: #000072;
             display: flex;
             justify-content: center;
             align-items: top;
@@ -16,21 +16,21 @@
         }
 
         .profile-container {
-            background-image: url('https://cdn1-production-images-kly.akamaized.net/J_qaSn7xpC5d-kbHx-wCsOiFsuY=/800x450/smart/filters:quality(75):strip_icc():format(webp)/kly-media-production/medias/4770934/original/018943800_1710311605-mountains-8451480_1280.jpg');
+            background-image: url('https://wallpapercave.com/wp/wp2468660.jpg');
             background-size: cover; 
             background-position: center;
             border-radius: 15px;
             padding: 20px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
             text-align: center;
-            width: 500px;
+            width: 350px;
             margin-top: 50px;
         }
 
         .profile-container img {
             border-radius: 50%;
-            width: 200px;
-            height: 200px;
+            width: 150px;
+            height: 150px;
             object-fit: cover;
             margin-top: 20px;
             margin-bottom: 20px;
@@ -39,15 +39,15 @@
 
         table {
             width: 100%;
-            margin-top: 10px;
+            margin-top: 30px;
         }
 
         table td {
-            padding: 5px 0;
-            font-size: 20px;
-            color: #333;
-            background: #f2f2f2;
-            border-radius: 2px
+            padding: 8px 0;
+            font-size: 15px;
+            color: #1db954;
+            background: white;
+            border-radius: 4px
         }
 
         table td:first-child {
@@ -62,8 +62,8 @@
             <tr> 
                 <td><?= $nama ?></td> 
             </tr> 
-            <tr> 
-                <td><?= $kelas ?></td> 
+            <tr>   
+                <td><?= $nama_kelas ?? 'Kelas tidak ditemukan' ?></td> 
             </tr> 
             <tr> 
                 <td><?= $npm ?></td> 
