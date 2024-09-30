@@ -39,7 +39,7 @@
 
     label {
       display: block;
-      margin-bottom: 8px;
+      margin-bottom: 14px;
       font-weight: bold;
       color: #fff;
       font-size: 14px;
@@ -70,11 +70,25 @@
       transition: background-color 0.3s;
     }
 
+    select{
+      font-family: 'Montserrat', 'Poppins', sans-serif;
+      margin-bottom:15px;
+      border-radius: 4px;
+    }
+
     input[type="submit"]:hover {
       font-family: 'Montserrat', 'Poppins', sans-serif;
       background-color: #0000a3;
       font-style: bold;
     }
+
+    .error-msg {
+      color: red;
+      font-size: 12px;
+      margin-top: -15px;
+      margin-bottom: 10px;
+    }
+
   </style>
 </head>
 <body>
@@ -82,14 +96,26 @@
     <h1>Formulir Biodata Mahasiswa</h1>
     <form action="{{ route('user.store') }}" method="POST">
       @csrf
+      
       <label for="nama">Nama:</label>
+      @foreach($errors->get('nama') as $msg)
+      <p class="error-msg">{{$msg}}</p>
+      @endforeach
       <input type="text" id="nama" name="nama">
-
+      
       <label for="npm">NPM:</label>
+      @foreach($errors->get('npm') as $msg)
+      <p class="error-msg">{{$msg}}</p>
+      @endforeach
       <input type="text" id="npm" name="npm">
+      
 
-      <label for="kelas">Kelas:</label>
-      <input type="text" id="kelas" name="kelas">
+      <label for="id_kelas">Kelas:</label>
+      <select name="kelas_id" id="kelas_id" required>
+        @foreach ($kelas as $kelasItem)
+        <option value="{{$kelasItem->id}}">{{$kelasItem->nama_kelas}}</option>
+        @endforeach
+  </select>
 
       <input type="submit" value="Submit">
     </form>
